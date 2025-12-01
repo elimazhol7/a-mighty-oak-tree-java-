@@ -4,11 +4,32 @@
 package org.example;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
-
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        // Create squirrels
+        Squirrel cheeks = new Squirrel("Cheeks");
+        Squirrel squeaks = new Squirrel("Squeaks");
+        Squirrel fluffybutt = new Squirrel("Mr. Fluffy Butt");
+
+        // Create nodes
+        Node nodeOne = new Node(cheeks);
+        Node nodeTwo = new Node(squeaks);
+        Node nodeThree = new Node(fluffybutt);
+
+        // Attach children
+        nodeOne.setLeft(nodeTwo);
+        nodeOne.setRight(nodeThree);
+
+        // Create binary tree
+        BinaryTree tree = new BinaryTree(nodeOne);
+
+        // Test traversal
+        System.out.println("Pre-order traversal:");
+        tree.traversePreOrder(tree.getRoot());
+
+        System.out.println("\nIn-order traversal:");
+        tree.traverseInOrder(tree.getRoot());
+
+        System.out.println("\nPost-order traversal:");
+        tree.traversePostOrder(tree.getRoot());
     }
 }
